@@ -279,6 +279,10 @@ openslide_t *openslide_open(const char *filename) {
   }
 
   // check downsamples
+  /*
+   * ALASLA: I turned this off because there is a weird layer in the optrascan images
+   * it doesn't really impact the usability of openslide on those images
+   * its just slightly weird
   for (int32_t i = 1; i < osr->level_count; i++) {
     //g_debug("downsample: %g", osr->levels[i]->downsample);
 
@@ -290,6 +294,7 @@ openslide_t *openslide_open(const char *filename) {
       return NULL;
     }
   }
+  */
 
   // set hash property
   const char *hash_str = _openslide_hash_get_string(quickhash1);
